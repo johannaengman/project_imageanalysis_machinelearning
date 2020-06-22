@@ -1,0 +1,38 @@
+The accuracy on the test set: 0.70766
+The accuracy on the training set: 0.94074
+
+layers = [
+    imageInputLayer([sizey sizex 1])
+    convolution2dLayer(3,8,'Padding',1)
+    batchNormalizationLayer
+    reluLayer
+    
+    maxPooling2dLayer(2,'Stride',2)
+    convolution2dLayer(3,16,'Padding',1)
+    batchNormalizationLayer
+    reluLayer
+    
+    maxPooling2dLayer(2,'Stride',2)
+    convolution2dLayer(3,32,'Padding',1)
+    batchNormalizationLayer
+    reluLayer
+    
+    maxPooling2dLayer(2,'Stride',2)
+    convolution2dLayer(3,64,'Padding',1)
+    batchNormalizationLayer
+    reluLayer
+    
+    maxPooling2dLayer(2,'Stride',2)
+    convolution2dLayer(3,128,'Padding',1)
+    batchNormalizationLayer
+    reluLayer
+    
+    fullyConnectedLayer(4)
+    softmaxLayer
+    classificationLayer];
+
+%% Train deep learning network
+
+miniBatchSize = 512;
+max_epochs = 60;
+learning_rate = 0.001;
